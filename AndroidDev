@@ -15,4 +15,4 @@ Threads
 --------
 1. Every IO action needs to be done in a thread.
 For example:
-https://stackoverflow.com/questions/7384678/how-to-create-socket-connection-in-android/35745834#35745834
+https://stackoverflow.com/a/43775284
