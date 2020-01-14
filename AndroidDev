@@ -16,3 +16,14 @@ Threads
 1. Every IO action needs to be done in a thread.
 For example:
 https://stackoverflow.com/a/43775284
+2. Executing blocking actions in a threwad might be tricky to debug - you might think that the thread just ended without doing anything,
+but its still wait for something.
+3. List the threads by using Android Studio's Profiler:
+https://stackoverflow.com/questions/39031060/is-there-a-way-to-monitor-threads-in-androidstudio
+
+Networking
+------------
+1. Connecting to an IP might be tricky, because its a blocking action that happen
+2. The network of the emulator is described here:
+https://developer.android.com/studio/run/emulator-networking
+Where the host IP is 10.0.2.2 and the device IP is 10.0.2.15
