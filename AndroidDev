@@ -1,0 +1,18 @@
+The emulator
+---------------
+1. If the emulator can't start - make sure it has enough RAM
+2. If you close the emulator by clicking on X - it will mess up the emulator
+3. If the emulator doesn't start because you brutally exited - you can run a "cold boot" from the AVD manager and it will solve it.
+
+Permissions
+-------------
+1. In order to add a permissions you need to add a line to AndroidManifest.xml (in /app/manifests):
+  <uses-permission android:name="android.permission.INTERNET"/>
+  You can search through the permissions by using the auto-completion of Android Studio (Ctrl+Space)
+2. All of the networking permissions are included in android.permission.INTERNET
+
+Threads
+--------
+1. Every IO action needs to be done in a thread.
+For example:
+https://stackoverflow.com/questions/7384678/how-to-create-socket-connection-in-android/35745834#35745834
