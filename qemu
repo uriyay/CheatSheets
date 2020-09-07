@@ -5,15 +5,21 @@ qemu-arm -L /usr/arm-linux-gnueabihf/  main
 
 # In order to run ELF with couple of libraries: 
 qemu-arm /usr/arm-linux-gnueabihf/lib/ld-linux-armhf.so.3 --library-path "/usr/arm-linux-gnueabihf/lib:../:../../../../openssl" ./sample 
+Note that its better to use the ld-linux of the target program (if its from a firmware for example)
 
 # debug with qemu 
 port 12345: 
 qemu-arm -g 12345 -L /usr/arm-linux-gnueabihf/  main 
 
 and in another terminal:
-gdb-multiarch 
-set solib-absolute-prefix /usr/arm-linux-gnueabihf/ 
-target remote 127.0.0.1:12345 
-x/10i $pc 
+> gdb-multiarch
+set $ROOT=/usr/arm-linux-gnueabihf/ # its better to use the root of the filesystem, if its a firmware
+set solib-absolute-prefix $ROOT
+set sysroot $ROOT
+set solib-search-path $ROOT
+target remote 127.0.0.1:12345
+#break on every library load until you get your binary loaded, otherwise you will gonna need to break on a specific symbol
+#which is a problem if there are no symbols at all
+set stop-on-solib-events 1
+cont
 
-you need to set a breakpoint on a function that you know that will be triggered, and then when it will be triggered you will be able to display disassembly. 
