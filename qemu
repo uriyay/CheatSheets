@@ -1,0 +1,19 @@
+sudo apt install qemu-user 
+
+# run ARM binary 
+qemu-arm -L /usr/arm-linux-gnueabihf/  main 
+
+# In order to run ELF with couple of libraries: 
+qemu-arm /usr/arm-linux-gnueabihf/lib/ld-linux-armhf.so.3 --library-path "/usr/arm-linux-gnueabihf/lib:../:../../../../openssl" ./sample 
+
+# debug with qemu 
+port 12345: 
+qemu-arm -g 12345 -L /usr/arm-linux-gnueabihf/  main 
+
+and in another terminal:
+gdb-multiarch 
+set solib-absolute-prefix /usr/arm-linux-gnueabihf/ 
+target remote 127.0.0.1:12345 
+x/10i $pc 
+
+you need to set a breakpoint on a function that you know that will be triggered, and then when it will be triggered you will be able to display disassembly. 
