@@ -1,2 +1,2 @@
 # CheatSheets
-This repo contains cheat sheets that I learned from my experience
+This repo contains cheat sheets for various of topics that I gathered over the time
