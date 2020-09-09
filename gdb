@@ -24,3 +24,5 @@ display /FMT address - set display parameters. FMT is like "x" command
 target remote ip:port - remote debugging
 
 set follow-fork-mode child/parent - when a fork happens, debug the child or the parent
+
+set print asm-demangle - enable demangled names (for C++)
