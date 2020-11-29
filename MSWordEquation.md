@@ -22,6 +22,9 @@ intersection - \cap
 integral - \int_(bottom)^(upper) (function)
 integral calc line (|) - |_(bottom)^(upper)
 
+### subscript
+Overline (variable with line above) - \overline x
+
 ### LaTex symobols
 https://support.microsoft.com/en-us/office/linear-format-equations-using-unicodemath-and-latex-in-word-2e00618d-b1fd-49d8-8cb4-8d17f25754f8.
 
