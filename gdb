@@ -26,3 +26,5 @@ target remote ip:port - remote debugging
 set follow-fork-mode child/parent - when a fork happens, debug the child or the parent
 
 set print asm-demangle - enable demangled names (for C++)
+
+set disassembly-flavor intel - sets the asm to be intel instead of AT&T
