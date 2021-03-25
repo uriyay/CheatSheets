@@ -1,0 +1,36 @@
+Fuzzing
+--------
+Fuzzing with regular afl-fuzz relies on the binary being compiled with afl-clang, which adds an instrumentation to the binary - 
+a "report command" for each code block to know that it entered to that block.
+DON'T even try to fuzz in this way a binary that is not compiled with afl-clang.
+
+afl-fuzz -i ./input/ -o ./output/ -- ./program @@
+
+The "@@" will be replaced each time with the fuzzing input file.
+
+Fuzzing with QEMU
+------------------
+This method is good for black box fuzzing, where you still able to run the binary with QEMU.
+Fuzzing with QEMU relies on afl-qemu-trace, which emulates a binary and trace all addresses
+So the fuzzer will know how many code blocks are covered using the trace log
+
+#one time phase:
+git clone https://github.com/AFLplusplus/AFLplusplus
+cd AFLplusplus
+make distrib
+cd qemu_mode
+CPU_TARGET=arm ./build_qemu_support.sh
+cd ../
+sudo make install
+
+#the fuzzing cmd:
+cd ~/fuzz_sample
+afl-fuzz -Q -i ./input/ -o ./output/ -- /usr/arm-linux-gnueabi/lib/ld-linux.so.3 --library-path /usr/arm-linux-gnueabi/lib:./ ./program @@
+
+Fuzzing with unicornafl
+------------------------
+This method is good for black box firmwares, where you can't even run the binary because its not a linux program.
+Also, it might be useful for binaries that access IO and stuff that are hard to emulate and you rather to just hook them up.
+Unicorn is actually built on top of QEMU, the two great things about it is that it can emulate a blob of binary and not just a fully linked ELF. Also it can place hooks in a very convenient way.
+
+afl-fuzz -U -m none -i ./input/ -o ./output/ -- ./program @@
