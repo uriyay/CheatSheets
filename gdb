@@ -33,3 +33,6 @@ set disassembly-flavor intel - sets the asm to be intel instead of AT&T
 If you assign a command or condition to a breakpoint, gdb will still print a line every time the BP is called.
 gdb by default will suspend the execution every time the screen is filled.
 In order to continue regardless to the screen status, instead of pressing ENTER to continue, press "c" and then ENTER.
+
+In order to disable paging:
+set pagination off
