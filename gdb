@@ -28,3 +28,8 @@ set follow-fork-mode child/parent - when a fork happens, debug the child or the 
 set print asm-demangle - enable demangled names (for C++)
 
 set disassembly-flavor intel - sets the asm to be intel instead of AT&T
+
+# Continue without paging
+If you assign a command or condition to a breakpoint, gdb will still print a line every time the BP is called.
+gdb by default will suspend the execution every time the screen is filled.
+In order to continue regardless to the screen status, instead of pressing ENTER to continue, press "c" and then ENTER.
