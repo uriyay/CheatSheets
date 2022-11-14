@@ -23,3 +23,12 @@ target remote 127.0.0.1:12345
 set stop-on-solib-events 1
 cont
 
+If you attach the debugger and has no debugging symbols - you can use the command:
+> add-symbol-file <filepath> -o OFFSET
+Where the offset can be retrieved by printing the /proc/PID/maps (PID is the child process of qemu)
+For example, if you see the following in the maps file:
+4000d5f000-4000d76000 r-xp 00000000 08:10 162074                         /usr/aarch64-linux-gnu/lib/libpthread-2.27.so
+4000d76000-4000d85000 ---p 00017000 08:10 162074                         /usr/aarch64-linux-gnu/lib/libpthread-2.27.so
+4000d85000-4000d86000 r--p 00016000 08:10 162074                         /usr/aarch64-linux-gnu/lib/libpthread-2.27.so
+4000d86000-4000d87000 rw-p 00017000 08:10 162074                         /usr/aarch64-linux-gnu/lib/libpthread-2.27.so
+Then the offset of libpthread-2.27.so will be 0x4000d5f000.
