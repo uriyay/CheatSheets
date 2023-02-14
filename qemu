@@ -32,3 +32,14 @@ For example, if you see the following in the maps file:
 4000d85000-4000d86000 r--p 00016000 08:10 162074                         /usr/aarch64-linux-gnu/lib/libpthread-2.27.so
 4000d86000-4000d87000 rw-p 00017000 08:10 162074                         /usr/aarch64-linux-gnu/lib/libpthread-2.27.so
 Then the offset of libpthread-2.27.so will be 0x4000d5f000.
+
+
+# unicorn
+https://www.unicorn-engine.org/
+unicorn-engine is an API for Qemu that makes it possible to emulate individual functions and even instructions.
+
+pip install unicorn
+
+In python2 you should install it with:
+pip2 install unicorn==1.0.3
+Because its the last version that supports python2
