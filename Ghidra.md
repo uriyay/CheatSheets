@@ -14,6 +14,7 @@ In my free time I will try to find tools/ways to implement these features
 
 ## Ghidra Python Cheat Sheet
 
+### Import Ghidra functions to IDA
 1. Dump Ghidra functions start addresses:
 
 ```py
@@ -22,7 +23,7 @@ with open(r'C:\Temp\funcs.json', 'w') as fp:
     json.dump([x.entryPoint.offset for x in currentProgram.getListing().getFunctions(True)], fp)
 ```
     
-Then you can use it in IDA and import all of the functions:
+2. Then you can use it in IDA and import all of the functions:
 
 ```py
 import json
@@ -46,4 +47,23 @@ funcs = json.load(open(r'C:\Temp\funcs.json')) as fp:
 for addr, name in funcs:
     idc.MakeFunction(addr)
     idc.set_name(addr, name)
+```
+
+### Import functions from IDA to Ghidra
+1. Dump IDA functions:
+```py
+import sark
+import json
+funcs = [(f.ea, f.name) for f in sark.functions()]
+json.dump(funcs, open('funcs.json', 'w'))
+```
+
+2. Load the json and import to Ghidra:
+```py
+from __main__ import * # needed for using flat API
+import json
+
+funcs = json.load(open('funcs.json'))
+for ea, name in funcs:
+    createFunction(toAddr(ea), name)
 ```
