@@ -65,5 +65,7 @@ import json
 
 funcs = json.load(open('funcs.json'))
 for ea, name in funcs:
-    createFunction(toAddr(ea), name)
+    addr = toAddr(ea)
+    createFunction(addr, name)
+    disassemble(addr)
 ```
