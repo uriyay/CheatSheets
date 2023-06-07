@@ -1,8 +1,18 @@
 Notice: this doc is focused in VSCode.
 
 ## Quick Start
+Create a Hello World project:
 `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false`
 Make sure you change the groupId and the artifactId
+
+Build:
+`mvn package`
+
+Run:
+`java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App`
+
+Clean:
+`mvn clean`
 
 ## Tricks
 ### Debug maven rules
