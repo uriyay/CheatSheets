@@ -5,13 +5,16 @@ Create a Hello World project:
 `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false`
 Make sure you change the groupId and the artifactId
 
-Build:
+#### Build
+
 `mvn package`
 
-Run:
+#### Run
+
 `java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App`
 
-Clean:
+#### Clean
+
 `mvn clean`
 
 ## Tricks
