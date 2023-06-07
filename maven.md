@@ -1,4 +1,4 @@
-Notice: this doc is focused in VSCode.
+Notice: this doc will be focused on VSCode.
 
 ## Quick Start
 Create a Hello World project:
