@@ -15,6 +15,12 @@ gdb.execute('set *(char *)a = 0x10')
 gdb.selected_inferior().write_memory(a, b'hello')
 ```
 
+hexdump:
+```py
+from hexdump import hexdump
+hexdump(bytes(inferior.read_memory(0xdeadbeef, 64)))
+```
+
 ### useful commands
 `stepi/si` - step one instruction, entering functions if the instruction is a call
 
