@@ -7,6 +7,9 @@ qemu-arm -L /usr/arm-linux-gnueabihf/  main
 qemu-arm /usr/arm-linux-gnueabihf/lib/ld-linux-armhf.so.3 --library-path "/usr/arm-linux-gnueabihf/lib:../:../../../../openssl" ./sample 
 Note that its better to use the ld-linux of the target program (if its from a firmware for example)
 
+Notice that the linker should be as closed to the original linker as you got, this applies to other libraries.
+For example you might get an error "cannot open shared object file: No such file or directory" because you are trying to pass a library path of arm-linux-gnueabi and not arm-linux-gnueabihf.
+
 # debug with qemu 
 port 12345: 
 qemu-arm -g 12345 -L /usr/arm-linux-gnueabihf/  main 
