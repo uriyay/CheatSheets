@@ -14,6 +14,7 @@ Make sure you change the groupId and the artifactId
 `mvn exec:java -Dexec.mainClass="com.example.Main"`
 
 This works too, if you want to pass the class path by yourself:
+
 `java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App`
 
 #### Clean
