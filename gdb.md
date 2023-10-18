@@ -57,3 +57,13 @@ In order to continue regardless to the screen status, instead of pressing ENTER 
 In order to disable paging:
 
 `set pagination off`
+
+### Catch exceptions
+
+`catch event` - allows you to catch all sort of events, such as exceptions.
+
+https://ftp.gnu.org/old-gnu/Manuals/gdb/html_node/gdb_30.html
+
+Useful example:
+
+`catch throw` - catch the *throw* in cpp, so you don't need to guess where this exception came from and you will have the whole backtrace of the thrower, which is much more interesting than the backtrace of the catcher..
