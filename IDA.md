@@ -13,6 +13,16 @@ https://www.hex-rays.com/products/ida/support/idapython_docs/idc.html#idc.force_
 
 (Edit -> Other -> force BL call)
 
+3. The analysis run for too long time and I just want to checkout the CFG of a specific function
+
+=> Run this python snippet:
+
+```py
+idc.set_flag(INF_GENFLAGS, INFFL_AUTO, 0)
+```
+
+(Credit: https://www.reddit.com/user/_emoose_/comments/131balg/ida_pausestop_analysis_command/)
+
 
 ## IDAPython tricks
 
