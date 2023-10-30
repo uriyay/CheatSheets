@@ -39,3 +39,16 @@ Debugging failing fuzzing
 --------------------------
 You can set the env var AFL_DEBUG_CHILD_OUTPUT=1 so that the output of the fuzzed program will be printed to the screen.
 This way you can debug by print the problem and see what went wrong
+
+Fuzzing with frida mode
+------------------------
+Add " -O" flag to afl-fuzz (compiling afl-fuzz with "make distrib" will also compile frida-mode)
+Also, checkout Scripting.md:
+https://github.com/AFLplusplus/AFLplusplus/blob/stable/frida_mode/Scripting.md
+There are some cool hooks and tweaks that can be made.
+
+Fuzzing shared libraries
+-------------------------
+You can fuzz a shared libraries using frida mode and set AFL_INST_LIBS=1.
+For other possibilities:
+https://github.com/AFLplusplus/AFLplusplus/blob/stable/docs/fuzzing_binary-only_targets.md#shared-libraries
