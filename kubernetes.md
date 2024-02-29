@@ -25,6 +25,8 @@ List all pods and their status - `kubectl get pods -A`
 
 Apply config, which is usually used whenever you need to install a big server with a lot of pods - `kubectl apply <url>`
 
+Expose port - `kubectl port-forward -n namespace pod_name local_port:pod_port`
+
 
 ## How to sniff a pod
 
