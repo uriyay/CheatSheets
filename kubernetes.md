@@ -27,6 +27,8 @@ Apply config, which is usually used whenever you need to install a big server wi
 
 Expose port - `kubectl port-forward -n namespace pod_name local_port:pod_port`
 
+Run bash inside a pod - `kubectl exec --stdin --tty -n namespace pod_name -- /bin/bash`
+
 
 ## How to sniff a pod
 
