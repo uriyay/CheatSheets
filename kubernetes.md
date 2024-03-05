@@ -29,6 +29,7 @@ Expose port - `kubectl port-forward -n namespace pod_name local_port:pod_port`
 
 Run bash inside a pod - `kubectl exec --stdin --tty -n namespace pod_name -- /bin/bash`
 
+Get details about a pod - `kubectl describe pod -n namespace pod_name`
 
 ## How to sniff a pod
 
